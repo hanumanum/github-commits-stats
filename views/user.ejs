@@ -1,0 +1,31 @@
+  <%- include header.ejs %>
+        <table id="commits-table" class="display">
+          <thead>
+              <tr>
+                  <th>Name</th>
+                  <th>Comment</th>
+                  <th>Commit date</th>
+                  <th>Commit Link</th>
+              </tr>
+          </thead>
+          <tbody>
+          <% commitsData.forEach(function(commitD) { %>  
+          
+                  <% commitD.commits.forEach(function(commit){ %>
+                    <tr>
+                    <td><%=commitD.name %></td>
+                    <td><%=commit.message %></td>
+                    <td><%=commit.date %></td>
+                    <td> 
+                      <a target="_blank" href='<%=commit.url %>'>
+                        commit link
+                      </a>
+                    </td>
+                  </tr>
+                  <% }) %>  
+          <% }) %>  
+        </tbody>
+      </table>
+<%- include footer.ejs %>
+    
+ 
