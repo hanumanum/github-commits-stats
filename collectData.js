@@ -2,7 +2,7 @@ const csv = require('csvtojson')
 const https = require('https')
 const csvFilePath = 'repolist'
 const fs = require('fs');
-const dataFile = "repodata";
+const dataFile = "repodata.json";
 var collectedData = [];
 fs.writeFile(dataFile, '');
 
@@ -27,11 +27,29 @@ csv()
 
             res.on('end', function(){
                 var commits = JSON.parse(commitsData);
+                var commitsD = [];
                 for(c in commits){
-                    collectedData.push([nextRepo.Name,commits[c].commit.message,commits[c].commit.author.date,commits[c].html_url]);
-                    var infStr = JSON.stringify(collectedData) + "\n";
-                    fs.writeFile(dataFile, infStr, 'utf8');
+                    commitsD.push(
+                        {
+                            "message":commits[c].commit.message,
+                            "date":commits[c].commit.author.date,
+                            "url":commits[c].html_url
+                        }
+                    )
+                    
                 }
+                
+                console.log(nextRepo.Name)
+                console.log(commitsD)
+                
+                collectedData.push({
+                    "name":nextRepo.Name,
+                    "commits":commitsD
+                });
+        
+                var infStr = JSON.stringify(collectedData) + "\n";
+                fs.writeFile(dataFile, infStr, 'utf8');
+
             });
 
         }).on('error', (e) => {

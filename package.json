@@ -9,6 +9,8 @@
   "author": "a.kolyan (hanuman)",
   "license": "ISC",
   "dependencies": {
-    "csvtojson": "^1.1.9"
+    "csvtojson": "^1.1.9",
+    "ejs": "^2.5.8",
+    "express": "^4.16.3"
   }
 }
