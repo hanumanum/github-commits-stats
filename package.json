@@ -1,0 +1,14 @@
+{
+  "name": "github-commits-stats",
+  "version": "1.0.0",
+  "description": "get commit statistics of repos list",
+  "main": "collectData.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "a.kolyan (hanuman)",
+  "license": "ISC",
+  "dependencies": {
+    "csvtojson": "^1.1.9"
+  }
+}
