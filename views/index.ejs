@@ -3,6 +3,7 @@
         <thead>
             <tr>
                 <th>Name</th>
+                <th>Commits Number</th>
                 <th>check</th>
             </tr>
         </thead>
@@ -10,6 +11,7 @@
         <% commitsData.forEach(function(commitD) { %>  
           <tr>
               <td><a target="_blank" href='/user/<%=commitD.name %>'><%=commitD.name %></a></td>
+              <td><%=commitD.commits.length %></td>
               <td><input type="checkbox"></td>
           </tr>
     
